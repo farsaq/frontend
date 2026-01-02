@@ -1,0 +1,33 @@
+.course-card {
+  background: white;
+  padding: 15px;
+  margin: 10px auto;
+  max-width: 500px;
+  border-radius: 6px;
+}
+
+.course-card button {
+  margin-top: 10px;
+  padding: 6px 12px;
+}
+.course-card {
+  background: white;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.course-card b {
+  font-size: 18px;
+}
+
+.course-card button {
+  margin-top: 10px;
+  padding: 8px 14px;
+  background: #16a34a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
