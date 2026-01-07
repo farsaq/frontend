@@ -1,63 +1,48 @@
-const API = "http://localhost:5000/api";
+const API = "https://farasaqib.onrender.com/api";
 
-/* =======================
-   AUTH
-======================= */
+/* AUTH */
 
 // LOGIN
-export async function loginUser(email, password) {
+export const loginUser = async (email, password) => {
   const res = await fetch(`${API}/auth/login`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
   });
-
   return res.json();
-}
+};
 
 // REGISTER
 export async function registerUser(name, email, password) {
   const res = await fetch(`${API}/auth/register`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, email, password }),
   });
-
   return res.json();
 }
 
-/* =======================
-   COURSES
-======================= */
+/* COURSES */
 
-// GET ALL COURSES (public)
+// GET ALL COURSES
 export async function getCourses() {
   const res = await fetch(`${API}/courses`);
   return res.json();
 }
 
-// ENROLL COURSE (user)
+// ENROLL COURSE
 export async function enrollCourse(courseId) {
   const token = localStorage.getItem("token");
-
   const res = await fetch(`${API}/courses/${courseId}/enroll`, {
     method: "POST",
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
+    headers: { Authorization: `Bearer ${token}` },
   });
-
   return res.json();
 }
 
-// CREATE COURSE (admin)
+// CREATE COURSE
 export async function createCourse(courseData) {
   const token = localStorage.getItem("token");
-
   const res = await fetch(`${API}/courses`, {
     method: "POST",
     headers: {
@@ -66,6 +51,5 @@ export async function createCourse(courseData) {
     },
     body: JSON.stringify(courseData),
   });
-
   return res.json();
 }
